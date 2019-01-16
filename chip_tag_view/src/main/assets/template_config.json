@@ -1,0 +1,21 @@
+{
+
+  "stock_only":false,
+  "debug":true,
+  "social_login":true,
+  "multi_account":true,
+  "company":"BiTS",
+  "tag_line":"EMPOWER YOUR BUSINESS WITH BiTS",
+  "host":"http://192.168.31.160:8069",
+  "configurable_host":false,
+  "registration_url":"http://192.168.31.160:8069/signup",
+  "registration_alias":"Need account? Join us here.",
+  "option_registration":true,
+  "option_forgot_password":false,
+  "default_db":"master",
+  "privacy_policy_url":"https://bitsbi.com/page/privacy",
+  "terms_of_service_url":"https://bitsbi.com/page/terms",
+  "google_client_id":"969472863896-487eet85s30p7b0iladam1oa8209b82r.apps.googleusercontent.com"
+
+
+}
