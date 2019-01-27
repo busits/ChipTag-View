@@ -8,8 +8,8 @@
     tools:context=".MainActivity">
 
 
-    <com.applandeo.materialcalendarview.CalendarView
-        android:id="@+id/calendarView"
+    <bits.views.chip.tag.ChipTagView
+        android:id="@+id/chipView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

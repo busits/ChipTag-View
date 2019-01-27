@@ -77,6 +77,10 @@ public class Chip extends RelativeLayout {
         return record_id;
     }
 
+    public ImageView getChipImageView(){
+        return findViewById(IMAGE_ID);
+    }
+
 
     public TextView getChipTextView() {
         return chipTextView;
@@ -92,6 +96,7 @@ public class Chip extends RelativeLayout {
         initTypedArray(attrs);
 
         initChipClick();
+
     }
 
     private void initChipClick() {

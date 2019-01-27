@@ -16,6 +16,16 @@ import java.util.List;
 public class ChipTagView extends FrameLayout {
 
     FlowLayout flowLayout;
+    ChipListener chipListener;
+
+    public void setChipListener(ChipListener chipListener) {
+        this.chipListener = chipListener;
+    }
+
+    public interface ChipListener {
+        public void onPostCreate(Chip chip,TagModel tag);
+    }
+
 
     public ChipTagView(@NonNull Context context) {
         super(context);
@@ -33,9 +43,10 @@ public class ChipTagView extends FrameLayout {
     }
 
     public void addTag(final TagModel tag) {
-        if(getTag(tag.id)==null) {
+        if (getTag(tag.id) == null) {
             View chipLayout = LayoutInflater.from(getContext()).inflate(R.layout.chip_tag_view_chip, null);
             final Chip chip = chipLayout.findViewById(R.id.chip_view_chip_id);
+            chip.setHasIcon(tag.hasIcon);
             chip.setChipText(tag.name);
             chipLayout.setTag(tag);
             chip.changeBackgroundColor(tag.getBackground_color());
@@ -51,11 +62,15 @@ public class ChipTagView extends FrameLayout {
                 public void run() {
                     chip.getChipTextView().setTextColor(tag.getText_color());
                     chip.getChipTextView().setTypeface(Typeface.createFromAsset(getContext().getAssets(), "chip_fonts/Lato/Lato-Bold.ttf"));
+                    if(chipListener!=null)
+                        chipListener.onPostCreate(chip,tag);
                 }
             });
+
             flowLayout.addView(chipLayout);
         }
     }
+
 
     public void addTags(List<TagModel> tags) {
         for (TagModel tag : tags)
@@ -70,7 +85,7 @@ public class ChipTagView extends FrameLayout {
         }
     }
 
-    public TagModel getTag(long id){
+    public TagModel getTag(long id) {
         for (int i = 0; i < flowLayout.getChildCount(); i++) {
             TagModel tagModel = (TagModel) flowLayout.getChildAt(i).getTag();
             if (tagModel.id == id)
@@ -88,7 +103,7 @@ public class ChipTagView extends FrameLayout {
         return ids;
     }
 
-    public TagModel[] getTags(){
+    public TagModel[] getTags() {
         TagModel[] tags = new TagModel[flowLayout.getChildCount()];
         for (int i = 0; i < flowLayout.getChildCount(); i++) {
             tags[i] = (TagModel) flowLayout.getChildAt(i).getTag();
