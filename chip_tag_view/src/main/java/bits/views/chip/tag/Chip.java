@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -18,6 +19,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static bits.views.chip.tag.ChipUtils.IMAGE_ID;
 import static bits.views.chip.tag.ChipUtils.TEXT_ID;
@@ -77,7 +80,7 @@ public class Chip extends RelativeLayout {
         return record_id;
     }
 
-    public ImageView getChipImageView(){
+    public CircleImageView getChipImageView(){
         return findViewById(IMAGE_ID);
     }
 
@@ -253,7 +256,9 @@ public class Chip extends RelativeLayout {
             return;
         }
 
-        ImageView icon = new ImageView(getContext());
+        CircleImageView icon = new CircleImageView(getContext());
+        icon.setBorderColor(Color.TRANSPARENT);
+        icon.setBorderWidth(0);
         LayoutParams iconParams = new LayoutParams((int) getResources().getDimension(R.dimen.chip_height), (int) getResources().getDimension(R.dimen.chip_height));
         iconParams.addRule(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 ? ALIGN_PARENT_START : ALIGN_PARENT_LEFT);
         icon.setLayoutParams(iconParams);
