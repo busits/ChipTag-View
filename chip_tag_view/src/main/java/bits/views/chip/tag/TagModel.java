@@ -10,7 +10,7 @@ public class TagModel {
     private int background_color;
     private boolean closable;
     private int text_color;
-    boolean hasIcon;
+    public boolean hasIcon;
 
     public TagModel(long id, String name) {
         this.id = id;
@@ -24,6 +24,14 @@ public class TagModel {
         this.closable=true;
         this.hasIcon=hasIcon;
     }
+    public TagModel(long id, String name, boolean hasIcon) {
+        this.id = id;
+        this.name = name;
+        this.closable=true;
+        this.hasIcon=hasIcon;
+    }
+
+
     public boolean isClosable() {
         return closable;
     }

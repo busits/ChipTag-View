@@ -29,9 +29,6 @@ public class MainActivity extends AppCompatActivity {
         chipTagView.setChipListener(new ChipTagView.ChipListener() {
             @Override
             public void onPostCreate(Chip chip, TagModel tag) {
-                if (tag.id==3) {
-                    chip.getChipImageView().setImageResource(R.drawable.ic_close);
-                }
             }
         });
     }
