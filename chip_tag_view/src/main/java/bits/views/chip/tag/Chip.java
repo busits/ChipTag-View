@@ -262,7 +262,7 @@ public class Chip extends RelativeLayout {
         LayoutParams iconParams = new LayoutParams((int) getResources().getDimension(R.dimen.chip_height), (int) getResources().getDimension(R.dimen.chip_height));
         iconParams.addRule(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 ? ALIGN_PARENT_START : ALIGN_PARENT_LEFT);
         icon.setLayoutParams(iconParams);
-        icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        //icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
         icon.setId(IMAGE_ID);
 
         if (chipIcon != null && ((BitmapDrawable) chipIcon).getBitmap() != null) {
