@@ -10,6 +10,7 @@
 
     <bits.views.chip.tag.ChipTagView
         android:id="@+id/chipView"
+        app:chip_tag_view_hint="Hello java..."
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

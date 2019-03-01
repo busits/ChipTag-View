@@ -19,4 +19,9 @@
         <attr name="mcv_iconTextColor" format="color" />
         <attr name="mcv_iconTextBackgroundColor" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="ChipTagView">
+        <attr name="chip_tag_view_hint" format="string" />
+    </declare-styleable>
+
 </resources>
