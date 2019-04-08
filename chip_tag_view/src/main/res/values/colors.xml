@@ -9,6 +9,7 @@
 
     <color name="customChipBackgroundColor">#F57C00</color>
     <color name="customCloseIconColor">#FFFFFF</color>
+    <color name="colorBrandRed">#ED1C24</color>
 
 
 </resources>

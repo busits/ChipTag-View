@@ -30,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPostCreate(Chip chip, TagModel tag) {
             }
+
+            @Override
+            public void onChipRemoved(TagModel tag) {
+
+            }
         });
     }
 

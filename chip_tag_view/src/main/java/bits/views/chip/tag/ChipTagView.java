@@ -14,6 +14,8 @@ import android.widget.ViewFlipper;
 
 import com.nex3z.flowlayout.FlowLayout;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ChipTagView extends FrameLayout {
@@ -31,12 +33,18 @@ public class ChipTagView extends FrameLayout {
 
     public interface ChipListener {
         public void onPostCreate(Chip chip, TagModel tag);
+
+        public void onChipRemoved(TagModel tag);
     }
 
 
     public ChipTagView(@NonNull Context context) {
         super(context);
         init(null);
+    }
+
+    public TextView getHintTxt() {
+        return hintTxt;
     }
 
     public ChipTagView(@NonNull Context context, @Nullable AttributeSet attrs) {
@@ -90,7 +98,7 @@ public class ChipTagView extends FrameLayout {
     private void invalidateHint() {
         if (flowLayout.getChildCount() == 0)
             viewFlipper.setDisplayedChild(0);
-         else
+        else
             viewFlipper.setDisplayedChild(1);
     }
 
@@ -106,6 +114,8 @@ public class ChipTagView extends FrameLayout {
             if (tagModel.id == id) {
                 flowLayout.removeViewAt(i);
                 invalidateHint();
+                if (chipListener != null)
+                    chipListener.onChipRemoved(tagModel);
             }
         }
     }
@@ -126,6 +136,10 @@ public class ChipTagView extends FrameLayout {
             ids[i] = tagModel.id;
         }
         return ids;
+    }
+
+    public List<Long> getTagIdsList() {
+        return new ArrayList<>(Arrays.asList(getTagIds()));
     }
 
     public TagModel[] getTags() {
